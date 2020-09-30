@@ -4,20 +4,21 @@ greetings="WELCOME"
 user=$(whoami)
 echo " $greetings $user to EmployeeMaster"
 
-fullday=1
+fullTime=1
 partTime=2
 salaryPerHour=20
+salaryPerMonth=20
 empCheck=$((RANDOM%3))
 case $empCheck in
-1)
+$fullTime)
 echo "*Present*"
 workingHours=8 ;;
-2)
+$partTime)
 echo "*Present*" 
 workingHours=4 ;;
 *)
 echo "*Absent*"
 workingHours=0 ;;
 esac
-TotalSalary=$((workingHours*salaryPerHour))
+TotalSalary=$((workingHours*salaryPerHour*salaryPerMonth))
 echo "Total Salary is $TotalSalary"

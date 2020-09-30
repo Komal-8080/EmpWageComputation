@@ -1,27 +1,23 @@
-#!/bin/bash
+#!/bin/bash -x
 
 greetings="WELCOME"
 user=$(whoami)
 echo " $greetings $user to EmployeeMaster"
 
-fullday=8
-partTime=4
+fullday=1
+partTime=2
 salaryPerHour=20
 empCheck=$((RANDOM%3))
-if [ $empCheck -eq 1 ];
-then
+case $empCheck in
+1)
 echo "*Present*"
-totalSalary=$((salaryPerHour*fullday))
-echo "TotalSalary for FullTime is $totalSalary"
-elif [ $empCheck -eq 2 ];
-then
-echo "*Present*"
-totalSalary=$((salaryPerHour*partTime))
-echo "TotalSalary for PartTime is $totalSalary"
-else [ $empCheck -eq 0 ];
+workingHours=8 ;;
+2)
+echo "*Present*" 
+workingHours=4 ;;
+*)
 echo "*Absent*"
-totalSalary=0
-echo "TotalSalary is $totalSalary"
-fi
-
-
+workingHours=0 ;;
+esac
+TotalSalary=$((workingHours*salaryPerHour))
+echo "Total Salary is $TotalSalary"

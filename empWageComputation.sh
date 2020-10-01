@@ -36,3 +36,9 @@ echo "Total Salary is $((salaryPerHour*totalWorkingHours))"
 fi
 done
 
+function workHours()
+{
+echo "Work Hours are $workingHours hours per day"
+}
+workHours
+

@@ -42,3 +42,4 @@ echo "Work Hours are $workingHours hours per day"
 }
 workHours
 
+echo "Salary Per day is $empWorkingHours"

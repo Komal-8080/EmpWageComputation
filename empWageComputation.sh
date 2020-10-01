@@ -24,15 +24,15 @@ case $empCheck in
 	workingHours=0 ;;
 esac
 
-empWorkingHours=$((workingHours*salaryPerHour))
-if [ $empWorkingHours -eq 0 ];
+salaryPerDay=$((workingHours*salaryPerHour))
+if [ $salaryPerDay -eq 0 ];
 then
 echo "Employee Absent"
-elif [ $empWorkingHours -lt $totalWorkingHours ];
+elif [ $salaryPerDay -lt $totalWorkingHours ];
 then
-echo "Total Salary per month is $((Month*empWorkingHours))"
+echo "Total Salary per month is $((Month*salaryPerDay))"
 else
-echo "Total Salary is $((salaryPerHour*totalWorkingHours))"
+echo "Total Salary for $totalWorkingHours hours is $((salaryPerHour*totalWorkingHours))"
 fi
 done
 
@@ -42,4 +42,6 @@ echo "Work Hours are $workingHours hours per day"
 }
 workHours
 
-echo "Salary Per day is $empWorkingHours"
+echo "Salary Per day is $salaryPerDay" 
+day=$(date +%A)
+echo " $day salary per day is $salaryPerDay and Total Salary per month is $((Month*salaryPerDay)) "
